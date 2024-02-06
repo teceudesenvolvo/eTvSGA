@@ -6,7 +6,7 @@ import {openAula, clickButton} from '../store/actions/index'
 import { bindActionCreators } from 'redux';
 
 import axios from 'axios'
-
+ 
 import {FaPlayCircle} from 'react-icons/fa'
 
 
