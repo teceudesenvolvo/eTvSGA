@@ -7,7 +7,7 @@ import { bindActionCreators } from 'redux';
 
 import firebase from 'firebase'
 
-import {FaSearch, FaBell, FaUserCircle, FaAngleDown} from 'react-icons/fa'
+import {FaSearch, FaBell, FaUserCircle} from 'react-icons/fa'
 
 
 // ITEMS MENU
@@ -19,9 +19,9 @@ function goInicio() {
   window.location.href = "/"
 }
 
-function goSingup() {
-  window.location.href = "/cadastro"
-}
+// function goSingup() {
+//   window.location.href = "/cadastro"
+// }
 
 
 

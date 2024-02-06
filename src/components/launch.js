@@ -6,7 +6,6 @@ import {connect} from 'react-redux'
 import {clickButton, LoggedOut} from '../store/actions/index'
 import { bindActionCreators } from 'redux';
 
-import axios from 'axios'
 
 import backgroundLive from '../assets/images/backgrond-launch-live.gif'
 

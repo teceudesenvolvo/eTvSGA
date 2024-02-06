@@ -16,10 +16,10 @@ import bgSite from '../assets/images/capa.png'
 // Components
 import MainMenu from '../components/mainMenu'
 import Sessoes from '../components/sections'
-import Recentes from '../components/recentes'
+// import Recentes from '../components/recentes'
 import Lancamentos from '../components/launch'
-import Event from '../components/eventos'
-import Reunioes from '../components/reunioes'
+// import Event from '../components/eventos'
+// import Reunioes from '../components/reunioes'
 
 
   //mudança de páginas
