@@ -9,7 +9,6 @@ import axios from 'axios'
 
 //Imagens
 import bgSite from '../assets/images/capa.png'
-// import logoCursoDestaque from '../assets/images/logo-curso-andré-1.png'
 
 // Icones
 
@@ -108,8 +107,8 @@ import Lancamentos from '../components/launch'
           <p><img className="backgroundHero" src={bgSite} alt='background site'/></p>
           <div className="curso-destaque">
             {/* <p><img className="logo-curso-destaque" src={this.state.logoUrl}/></p> */}
-            <h1 className="title-curso-destaque">Bem vindo a TV Câmara de Pacatuba</h1>
-            <p className="desc-curso-destaque">Câmara Municipal de Pacatuba</p>
+            <h1 className="title-curso-destaque">TV Câmara de São Gonçalo do Amarante</h1>
+            <p className="desc-curso-destaque">Câmara Municipal de São Gonçalo do Amarante</p>
             {/* <p><input type="button" value="Assistir Ao Vivo" className="btn-curso-destaque" 
               onClick={
                 () => {this.setState({id: this.state.cousesAll}, () => {
