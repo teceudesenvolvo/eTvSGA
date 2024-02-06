@@ -45,10 +45,12 @@ import backgroundLive from '../assets/images/backgrond-launch-live.gif'
     <div>
       <section>
           <div className="backgroundLaunch">
-            <p><img className="backgroundLaunch imgFilter" src={backgroundLive} alt='backgroundLive'/></p>
+            <p>
+              {/* <img className="backgroundLaunch imgFilter" src={backgroundLive} alt='backgroundLive'/> */}
+            </p>
             <div className="curso-lancamento">
-              <h1 className="title-curso-lancamento">Ao Vivo</h1>
-              <p className="desc-curso-lancamento">Assista agora</p>
+              {/* <h1 className="title-curso-lancamento">Ao Vivo</h1>
+              <p className="desc-curso-lancamento">Assista agora</p> */}
               <p>
                   {/* <input type="button" value="Assista Agora" className="btn-curso-lancamento" 
                   onClick={
@@ -67,7 +69,7 @@ import backgroundLive from '../assets/images/backgrond-launch-live.gif'
                 </p>
                     <div className='videoLiveInicio'>
                       <ReactPlayer className="watchVideo" scrolling="no" frameborder="0" onload="iFrameResize()" 
-                      url={`https://fb.watch/pXZ-yuh5IN/`} controls='true'/>
+                      url={`https://www.youtube.com/watch?v=t47x5DGGBGw`} controls='true'/>
                     </div>
             </div>
           </div>

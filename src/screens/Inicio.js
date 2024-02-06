@@ -103,21 +103,21 @@ import Lancamentos from '../components/launch'
       }>
         <MainMenu/>
         
-        <div className="backgroundHero">
+        {/* <div className="backgroundHero">
           <p><img className="backgroundHero" src={bgSite} alt='background site'/></p>
           <div className="curso-destaque">
-            {/* <p><img className="logo-curso-destaque" src={this.state.logoUrl}/></p> */}
+            <p><img className="logo-curso-destaque" src={this.state.logoUrl}/></p>
             <h1 className="title-curso-destaque">TV Câmara de São Gonçalo do Amarante</h1>
             <p className="desc-curso-destaque">Câmara Municipal de São Gonçalo do Amarante</p>
-            {/* <p><input type="button" value="Assistir Ao Vivo" className="btn-curso-destaque" 
+            <p><input type="button" value="Assistir Ao Vivo" className="btn-curso-destaque" 
               onClick={
                 () => {this.setState({id: this.state.cousesAll}, () => {
                   (this.props.clickButton(this.state))
                   (window.location.href = "/item")
                 })}}
-                /></p> */}
+                /></p>
           </div>
-        </div>
+        </div> */}
         
         
 
