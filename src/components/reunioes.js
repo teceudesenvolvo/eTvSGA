@@ -40,14 +40,18 @@ import axios from 'axios'
               .catch(err => console.log(err))
               .then(res => {
                   const avisoAll = res.data.items
-                  // consultas
-                  // visitantes = visitantes.filter(content => {
-                  //     return content.condominio.includes(this.state.email)
-                  // })
+                  let avisos = []
+                  for(let key in avisoAll){
+                    avisos.push({
+                        ...avisoAll[key],
+                        id: key
+                    })
+                }
+                  avisos = avisos.filter(content => content.snippet.title.toUpperCase().includes('COM A PALAVRA'))
+                  
                   if(avisoAll.length > 4){
-                    avisoAll.reverse()
                     avisoAll.length = 4;
-                    this.setState({avisos: avisoAll})
+                    this.setState({avisos: avisos})
                   }
                   console.log('1')
               })
@@ -85,8 +89,8 @@ import axios from 'axios'
         <section className="courses">
           <div className="divTitleSection">
             {/* <div className="item-separator"></div> */}
-            <h1 className="titleSection">Reuniões</h1>
-            <p className="newsSection">Todas reuniões plenárias</p>
+            <h1 className="titleSection">Para você</h1>
+            <p className="newsSection">Uma mensagem para você.</p>
           </div>
             <ul  className="listAreas2">
               {listAvisos}

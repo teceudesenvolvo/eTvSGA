@@ -47,9 +47,9 @@ import axios from 'axios'
                         id: key
                     })
                 }
-                  avisos = avisos.filter(content => content.snippet.title.toUpperCase().includes('Audiência'))
+                  avisos = avisos.filter(content => content.snippet.title.toUpperCase().includes('AUDIÊNCIA'))
                   if(avisos.length > 4){
-                    avisos.length = 4;
+                    avisos.length = 8;
                     this.setState({avisos: avisos})
                   }
                   console.log('1')

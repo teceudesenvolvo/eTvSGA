@@ -17,8 +17,8 @@ import MainMenu from '../components/mainMenu'
 import Sessoes from '../components/sections'
 // import Recentes from '../components/recentes'
 import Lancamentos from '../components/launch'
-// import Event from '../components/eventos'
-// import Reunioes from '../components/reunioes'
+import Event from '../components/eventos'
+import Reunioes from '../components/reunioes'
 
 
   //mudança de páginas
@@ -127,9 +127,9 @@ import Lancamentos from '../components/launch'
 
         <Sessoes />
 
-        {/* <Event />
+        <Event />
 
-        <Reunioes /> */}
+        <Reunioes />
 
       </div>
     );
