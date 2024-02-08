@@ -69,7 +69,7 @@ import backgroundLive from '../assets/images/backgrond-launch-live.gif'
                 </p>
                     <div className='videoLiveInicio'>
                       <ReactPlayer className="watchVideo" scrolling="no" frameborder="0" onload="iFrameResize()" 
-                      url={`https://www.youtube.com/watch?v=t47x5DGGBGw`} controls='true'/>
+                      url={`https://www.youtube.com/watch?v=bm9bhb1V-xU`} controls='true'/>
                     </div>
             </div>
           </div>
