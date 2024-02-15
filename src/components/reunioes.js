@@ -90,7 +90,7 @@ import axios from 'axios'
           <div className="divTitleSection">
             {/* <div className="item-separator"></div> */}
             <h1 className="titleSection">Para você</h1>
-            <p className="newsSection">Uma mensagem para você.</p>
+            <p className="newsSection">Nossos Representantes</p>
           </div>
             <ul  className="listAreas2">
               {listAvisos}
