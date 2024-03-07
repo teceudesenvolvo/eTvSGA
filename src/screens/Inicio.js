@@ -15,7 +15,7 @@ import bgSite from '../assets/images/capa.png'
 // Components
 import MainMenu from '../components/mainMenu'
 import Sessoes from '../components/sections'
-// import Recentes from '../components/recentes'
+import LiveAtual from '../components/liveAtual'
 import Lancamentos from '../components/launch'
 import Event from '../components/eventos'
 import Reunioes from '../components/reunioes'
@@ -122,7 +122,6 @@ import Reunioes from '../components/reunioes'
         
 
         <Lancamentos/>
-        {/* <Recentes/> */}
 
 
         <Sessoes />
@@ -130,6 +129,8 @@ import Reunioes from '../components/reunioes'
         <Event />
 
         <Reunioes />
+
+        {/* <LiveAtual/> */}
 
       </div>
     );
