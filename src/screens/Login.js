@@ -6,7 +6,7 @@ import { bindActionCreators } from 'redux'
 
 import axios from 'axios'
 
-import logo from '../assets/images/logo-pacatuba.png'
+import logo from '../assets/images/logo-SGA.png'
 
 import '../App.css'
 
