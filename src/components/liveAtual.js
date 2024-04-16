@@ -1,98 +1,78 @@
 import React from 'react';
-import '../App.css'
+import '../App.css';
+
 import ReactPlayer from 'react-player';
-
-import { connect } from 'react-redux'
 import { clickButton, LoggedOut } from '../store/actions/index'
+import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-
-import axios from 'axios'
-
+import axios from 'axios';
 
 class Liveatual extends React.Component {
-
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
-      id: '566',
-      tipo: 'aviso',
-      avisos: [],
-      carregar: 'Carregar Avisos',
-      btnLoad: "visitanteBtn"
-    }
+      tokenAccess: null,
+      videoId: null
+    };
   }
 
-
-//   Autenticação
-getAccessToken = async () => {
-   
-        axios.post(
-            'https://oauth2.googleapis.com/token',
-            {
-                client_id: '690193859816-ptc7jnica28b58eh4p42gbrureu2pu13.apps.googleusercontent.com',
-                client_secret: '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',
-                refresh_token: 'ya29.a0AfB_byDfR4piaHb-nyjpU5_17F9m9xgMze_cmRXD0m6tTSIagfMgRV-iGJ4CyR0JaMHekrcvXGX_9Gbz-bDo9kk0JxwyndViCiwrqTlS674ZaoAKvd3gtF4QLsd_tW7i5JlgRJEIrq5f2elbYVKKzyHoYXtNQQFmRZYkaCgYKAWkSARESFQHGX2Mimg0fb2VOjhYygsdhVJY2SA0171',
-                grant_type: 'refresh_token',
-                scope: 'https://www.googleapis.com/auth/youtube.readonly',
-                redirect_uri: 'https://tvcamara.cmsga.ce.gov.br/'
-            }
-        )
-        .catch(err => console.log("Erro quando foi obter o acesso:", err))
-        .then(response => {   
-            console.log('O token de acesso', response.data.tokenAcess)     
-            this.setState({
-                tokenAcess: response.data.acess_token
-            })
-            
-        })
-         
-   
-};
-
-
-fetchLiveStreams = (accessToken) => {
-
-    const API_KEY = 'AIzaSyAvzOdQzU-H_tneJBcbVnmO60dEzWMKhT4';
-    const CHANNEL_ID = '$UCjxnvUBYTWsp_zmkFKOvkQA';
-
-    return axios.get(
-        `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${CHANNEL_ID}&eventType=live&type=video&key=${API_KEY}`,
+  // Autenticação
+  getAccessToken = async () => {
+    try {
+      const response = await axios.post(
+        'https://oauth2.googleapis.com/token',
         {
-          headers: {
-            Authorization: `Bearer ${accessToken}`,
-          },
+          client_id: '690193859816-ptc7jnica28b58eh4p42gbrureu2pu13.apps.googleusercontent.com',
+          client_secret: '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',
+          refresh_token: '1//0h6AWsI4hand9CgYIARAAGBESNwF-L9Ir-sdZiTTIvgpY5A3OQ2vv0x_WEPm4KrZKlLU6X1Qu9UE1PkLEfTm-OKZGdsc-NBEB4hE',
+          grant_type: 'refresh_token',
+          scope: 'https://www.googleapis.com/auth/youtube.readonly',
+          redirect_uri: 'https://tvcamara.cmsga.ce.gov.br/'
         }
-      ).then(response => {
-        return console.log(response.data.items);
-      }).catch(error => {
-        console.error('Erro ao buscar live streams:', error);
-        throw error;
-      });
+      );
+      const accessToken = response.data.access_token;
+      this.setState({ tokenAccess: accessToken });
+      this.fetchPlaylistItems(accessToken);
+    } catch (error) {
+      console.error("Erro ao obter o token de acesso:", error);
+    }
+  };
 
-};
+  fetchPlaylistItems = (accessToken) => {
+    const API_KEY = 'AIzaSyAvzOdQzU-H_tneJBcbVnmO60dEzWMKhT4';
+    const PLAYLIST_ID = 'YOUR_PLAYLIST_ID';
 
-componentDidMount() {
-    const loadPage = () => this.getAccessToken()
-    loadPage()
+    axios.get('').then(response => {
+      console.log(response); // Verificar os dados da resposta da API
+      const videoId = response.data.items.length > 0 ? response.data.items[0].snippet.resourceId.videoId : null;
+      this.setState({ videoId });
+    }).catch(error => {
+      console.error('Erro ao buscar itens da playlist:', error);
+    });
+  };
+
+  componentDidMount() {
+    this.getAccessToken();
   }
-
-
 
   render() {
+    const { videoId } = this.state;
 
     return (
       <div>
         <section>
           <div className="backgroundLaunch">
-            <p>
-             </p>
             <div className="curso-lancamento">
-              
-              <p>
-              </p>
               <div className='videoLiveInicio'>
-                <ReactPlayer className="watchVideo" scrolling="no" frameborder="0" onload="iFrameResize()"
-                  url={`https://www.youtube.com/watch?v=FJgQa42w-L8`} controls='true' />
+                {videoId && (
+                  <ReactPlayer
+                    className="watchVideo"
+                    scrolling="no"
+                    frameborder="0"
+                    url={`https://www.youtube.com/watch?v=${videoId}`}
+                    controls='true'
+                  />
+                )}
               </div>
             </div>
           </div>
@@ -101,7 +81,6 @@ componentDidMount() {
     );
   }
 }
-
 
 const mapDispatchToProps = dispatch => {
   return bindActionCreators({ clickButton, LoggedOut }, dispatch);
