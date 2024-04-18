@@ -7,12 +7,14 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import axios from 'axios';
 
+
 class Liveatual extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       tokenAccess: null,
-      videoId: null
+      liveStreamId: null,
+      playlistVideoId: null
     };
   }
 
@@ -32,20 +34,27 @@ class Liveatual extends React.Component {
       );
       const accessToken = response.data.access_token;
       this.setState({ tokenAccess: accessToken });
-      this.fetchPlaylistItems(accessToken);
+      this.fetchLiveStreams(accessToken);
     } catch (error) {
       console.error("Erro ao obter o token de acesso:", error);
     }
   };
 
-  fetchPlaylistItems = (accessToken) => {
+  fetchLiveStreams = (accessToken) => {
     const API_KEY = 'AIzaSyAvzOdQzU-H_tneJBcbVnmO60dEzWMKhT4';
     const PLAYLIST_ID = 'YOUR_PLAYLIST_ID';
 
     axios.get('').then(response => {
       console.log(response); // Verificar os dados da resposta da API
-      const videoId = response.data.items.length > 0 ? response.data.items[0].snippet.resourceId.videoId : null;
-      this.setState({ videoId });
+      const items = response.data.items;
+      const liveStreamItem = items.find(item => item.snippet.title.toLowerCase().includes('ao vivo'));
+      if (liveStreamItem) {
+        const liveStreamId = liveStreamItem.snippet.resourceId.videoId;
+        this.setState({ liveStreamId });
+      } else {
+        const latestVideoId = items.length > 0 ? items[0].snippet.resourceId.videoId : null;
+        this.setState({ playlistVideoId: latestVideoId });
+      }
     }).catch(error => {
       console.error('Erro ao buscar itens da playlist:', error);
     });
@@ -56,7 +65,7 @@ class Liveatual extends React.Component {
   }
 
   render() {
-    const { videoId } = this.state;
+    const { liveStreamId, playlistVideoId } = this.state;
 
     return (
       <div>
@@ -64,14 +73,24 @@ class Liveatual extends React.Component {
           <div className="backgroundLaunch">
             <div className="curso-lancamento">
               <div className='videoLiveInicio'>
-                {videoId && (
+                {liveStreamId ? (
                   <ReactPlayer
                     className="watchVideo"
                     scrolling="no"
                     frameborder="0"
-                    url={`https://www.youtube.com/watch?v=${videoId}`}
+                    url={`https://www.youtube.com/watch?v=${liveStreamId}`}
                     controls='true'
                   />
+                ) : (
+                  playlistVideoId && (
+                    <ReactPlayer
+                      className="watchVideo"
+                      scrolling="no"
+                      frameborder="0"
+                      url={`https://www.youtube.com/watch?v=${playlistVideoId}`}
+                      controls='true'
+                    />
+                  )
                 )}
               </div>
             </div>
