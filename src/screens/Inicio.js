@@ -120,8 +120,8 @@ import Reunioes from '../components/reunioes'
         </div> */}
         
         
-        <LiveAtual/>
-        {/* <Lancamentos/> */}
+        {/* <LiveAtual/> */}
+        <Lancamentos/>
 
 
         <Sessoes />
