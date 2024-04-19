@@ -47,7 +47,7 @@ import axios from 'axios'
                         id: key
                     })
                 }
-                  avisos = avisos.filter(content => content.snippet.title.toUpperCase().includes('COM A PALAVRA'))
+                  avisos = avisos.filter(content => content.snippet.title.toUpperCase().includes('PALAVRA'))
                   
                   if(avisoAll.length > 4){
                     avisoAll.length = 4;
