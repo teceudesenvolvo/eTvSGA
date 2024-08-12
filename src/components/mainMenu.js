@@ -90,8 +90,14 @@ class MainMenu extends React.Component {
 
         <div>
           <div className="left-menu">
-            <FaSearch className="search-icon"/>
-            <a href="/buscar" className="left-menu-item">Buscar</a>
+            
+            
+            {/* Pesquisar */}
+            
+            {/* <FaSearch className="search-icon"/>
+            <a href="/buscar" className="left-menu-item">Buscar</a> */}
+
+
             <FaBell className="notification"/>
           </div>
           <div className="profile-items" >
