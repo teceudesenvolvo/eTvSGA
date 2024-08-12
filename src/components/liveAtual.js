@@ -42,7 +42,7 @@ class Liveatual extends React.Component {
 
   fetchLiveStreams = (accessToken) => {
     const API_KEY = 'AIzaSyAvzOdQzU-H_tneJBcbVnmO60dEzWMKhT4';
-    const PLAYLIST_ID = 'YOUR_PLAYLIST_ID';
+    const PLAYLIST_ID = 'PL7WfCTsmLg2UT33p84KHmPjsc3pGd3gPU';
 
     axios.get('').then(response => {
       console.log(response); // Verificar os dados da resposta da API
