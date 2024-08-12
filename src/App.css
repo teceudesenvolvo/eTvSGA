@@ -4,6 +4,17 @@ body{
   width: 100%;
 }
 
+.periodo-eleitoral-title{
+  margin-top: 20%;
+  font-size: 30px;
+}
+.periodo-eleitoral-text{
+  margin-bottom: 20%;
+  font-size: 15px;
+  width: 95%;
+}
+
+
 body > iframe{
   z-index: -1 !important;
 }
