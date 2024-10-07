@@ -119,17 +119,7 @@ import Reunioes from '../components/reunioes'
           </div>
         </div> */}
         {/* <Lancamentos/> */}
-
-        <h1 className='periodo-eleitoral-title'>
-        Olá!</h1>
-        
-        <p className='periodo-eleitoral-text'>
-        Suspendemos a divulgação das atividades cotidianas da Câmara Municipal de São Gonçalo do Amarante em nossos canais digitais em cumprimento ao artigo 73 da Lei 9.504/1997. A publicação de matérias sobre a Casa será retomada em 7 de outubro, após as eleições municipais. Enquanto isso, você pode ter acesso aos nossos serviços pelos nossos canais oficiais.
-        <br/>
-        Agradecemos a compreensão!
-        </p>
-
-{/*         
+      
         
         <LiveAtual/>
 
@@ -140,7 +130,7 @@ import Reunioes from '../components/reunioes'
 
         <Reunioes />
 
-         */}
+        
 
       </div>
     );
